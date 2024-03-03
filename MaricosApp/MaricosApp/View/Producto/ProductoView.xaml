@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MaricosApp.View.ProductoPopup.ProductoView"
+              x:Name="ProductsPage">
+    <ContentView.Content>
+        <Frame BackgroundColor="White"
+                               CornerRadius="10"
+                               HasShadow="True"
+                               Margin="10">
+            
+            <Grid Margin="-20">
+                <!-- Primera parte (imagen) ocupa el 50% -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50*" />
+                    <RowDefinition Height="50*" />
+                </Grid.RowDefinitions>
+                <Image Source="{Binding ubicacion}" 
+                               Aspect="AspectFill" 
+                               Grid.Row="0"
+                               Margin="0"
+                              
+                               />
+                <!-- Segunda parte (contenido) ocupa el 50% -->
+                <StackLayout Grid.Row="1" Margin="15,8,10,15">
+                    <!-- Nombre -->
+                    <Label Text="{Binding nombre}" 
+                           HorizontalOptions="Center"
+                           FontAttributes="Bold"
+                           FontSize="18" 
+                           />
+                    <!-- Descripción del producto -->
+                    <Label Text="{Binding descripcion}" 
+                           FontSize="14"
+                           LineBreakMode="WordWrap"/>
+                    <!-- Precio -->
+                    <Label Text="{Binding precio, StringFormat='Precio: ${0:0.00}'}" 
+                           FontSize="14"
+                           FontAttributes="Bold" Margin="15,25,0,-15"
+                          />
+                    <Label Text="{Binding existencia, StringFormat='Precio: ${0:0.00}'}" 
+                           FontSize="14"
+                           FontAttributes="Bold" Margin="15,25,0,-15"
+                          />
+                </StackLayout>
+                <Button Text="Agregar al carrito"
+                        Grid.Row="1"
+                        BackgroundColor="Green"
+                        CornerRadius="10"
+                        VerticalOptions="End"
+                        HorizontalOptions="Center"
+                        Margin="-15,0,-10,-10"
+                        />
+            </Grid>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

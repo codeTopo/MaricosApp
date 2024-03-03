@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MaricosApp.View.Venta.VentaView">
+    <ContentPage.Content>
+        <StackLayout>
+            <!-- CheckBoxes para el tipo de pago -->
+            <StackLayout Orientation="Horizontal">
+                <CheckBox x:Name="chkEfectivo" CheckedChanged="CheckBox_CheckedChanged" AutomationId="Efectivo" />
+                <Label Text="Efectivo" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <CheckBox x:Name="chkTarjeta" CheckedChanged="CheckBox_CheckedChanged" AutomationId="Tarjeta" />
+                <Label Text="Tarjeta Bancaria" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <CheckBox x:Name="chkPedido" CheckedChanged="CheckBox_CheckedChanged" AutomationId="Pedido" />
+                <Label Text="Pasar por Pedido" />
+            </StackLayout>
+
+            <!-- ListView para mostrar la lista de conceptos -->
+            <ListView x:Name="conceptosListView" ItemsSource="{Binding ConceptoViewModel.Conceptos}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Cantidad}" />
+                                <Label Text="{Binding Producto.Nombre}" />
+                                <Label Text="{Binding Producto.Precio}" />
+                                <Label Text="{Binding Total}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!-- Botón para realizar la venta -->
+            <Button Text="Realizar Venta" Clicked="RealizarVenta_Clicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

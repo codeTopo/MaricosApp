@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:magic="http://magic.com/schemas/gradients"
+             x:Class="MaricosApp.View.Cliente.ClientesView">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="CustomEntryStyle" TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="White" />
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid>
+            <magic:GradientView VerticalOptions="FillAndExpand">
+                <magic:GradientView.GradientSource>
+                    <magic:LinearGradient Angle="180">
+                        <magic:GradientStop Color="#7ca8ba" Offset="0.00"/>
+                        <magic:GradientStop Color="#7ca8ba" Offset="0.21"/>
+                        <magic:GradientStop Color="#cac978" Offset="0.44"/>
+                        <magic:GradientStop Color="#7492d7" Offset="0.64"/>
+                        <magic:GradientStop Color="#cac978" Offset="0.81"/>
+                        <magic:GradientStop Color="#7ca8ba" Offset="0.86"/>
+                    </magic:LinearGradient>
+                </magic:GradientView.GradientSource>
+            </magic:GradientView>
+
+            <Grid RowDefinitions="*,Auto">
+                <Frame Grid.Row="1" HasShadow="False" Margin="15,-50,15,50" VerticalOptions="FillAndExpand" CornerRadius="20" Opacity="0.9" BackgroundColor="#7b8386">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            
+                        </Grid.RowDefinitions>
+                       
+                        <!-- Título centrado -->
+                        <Label Grid.Row="0" Text="Datos del Cliente" FontAttributes="Bold" FontSize="30" HorizontalOptions="CenterAndExpand" Margin="0,-10,0,0" TextColor="White" />
+
+                        <!-- Cliente -->
+                        <Label Grid.Row="1" Text="Cliente" FontAttributes="Bold" FontSize="20" TextColor="White" HorizontalOptions="Center" />
+
+                        <!-- Nombre -->
+                        <Label Grid.Row="2" Text="Nombre:" FontAttributes="Bold" FontSize="15" TextColor="Black" />
+                        <Label Grid.Row="2" Text="{Binding Clientes[0].nombre}" x:Name="NombreLabel" HorizontalOptions="EndAndExpand" TextColor="White" />
+
+                        <!-- Apellido -->
+                        <Label Grid.Row="3" Text="Apellido:" FontAttributes="Bold"  FontSize="15" TextColor="Black" />
+                        <Label Grid.Row="3" Text="{Binding Clientes[0].apellido}" x:Name="ApellidoLabel" HorizontalOptions="EndAndExpand" TextColor="White" />
+
+                        <!-- Título centrado -->
+                        <Label Grid.Row="5" Text="Dirección" FontAttributes="Bold" FontSize="20" HorizontalOptions="CenterAndExpand" TextColor="White" />
+
+                        <!-- Calle -->
+                        <Label Grid.Row="6" Text="Calle:" FontAttributes="Bold"  FontSize="15" TextColor="Black"/>
+                        <Label Grid.Row="6" Text="{Binding Clientes[0].calle}" x:Name="CalleLabel" HorizontalOptions="EndAndExpand" TextColor="White" />
+
+                        <!-- Colonia -->
+                        <Label Grid.Row="7" Text="Colonia:" FontAttributes="Bold" FontSize="15" TextColor="Black" />
+                        <Label Grid.Row="7" Text="{Binding Clientes[0].colonia}" x:Name="ColoniaLabel" HorizontalOptions="EndAndExpand" TextColor="White" />
+
+                        <Label Grid.Row="8" Text="Número interior:" FontAttributes="Bold" FontSize="15" TextColor="Black" />
+                        <Label Grid.Row="8" Text="{Binding Clientes[0].numero}" x:Name="NumeroLabel" HorizontalOptions="EndAndExpand" TextColor="White" />
+
+                        <!-- Espaciador -->
+                        <BoxView Grid.Row="9" HeightRequest="20" />
+
+                        <Label Grid.Row="10" Text="Teléfono:" FontAttributes="Bold" FontSize="15" TextColor="Black" />
+                        <Label Grid.Row="10" Text="{Binding Clientes[0].telefono}" x:Name="TelefonoLabel" HorizontalOptions="EndAndExpand" TextColor="White" />
+
+                        <Label Grid.Row="11" Text="Referencia:" FontAttributes="Bold" FontSize="15" TextColor="Black" />
+                        <Label Grid.Row="11" Text="{Binding Clientes[0].referencia}" x:Name="ReferenciaLabel" HorizontalOptions="EndAndExpand" TextColor="White" />
+                    </Grid>
+                </Frame>
+                <!-- Agregué un botón para ver detalles, ajusta según tus necesidades -->
+                <Button Grid.Row="2" Text="Ver Detalles" Clicked="VerDetallesButton_Clicked" HorizontalOptions="CenterAndExpand" Margin="0,0,0,50" BackgroundColor="#cac978" CornerRadius="35" />
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

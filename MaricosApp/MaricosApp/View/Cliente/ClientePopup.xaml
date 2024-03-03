@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="MaricosApp.View.Cliente.ClientePopup"
+            BackgroundClicked="Cerrar"
+            CloseWhenBackgroundIsClicked="False">
+    
+    
+    <Frame WidthRequest="250" HeightRequest="300" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="White" CornerRadius="10">
+        <StackLayout>
+            <Button Text="Guardar" Clicked="OnGuardarClicked" BorderColor="Gold" CornerRadius="20" />
+            <BoxView HeightRequest="10" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <!-- Primera columna -->
+                <StackLayout Grid.Column="0">
+                    <Entry x:Name="entryNombre" Placeholder="Nombre" Style="{StaticResource MyEntryStyle}" />
+                    <Entry x:Name="entryTelefono" Placeholder="Telefono" Style="{StaticResource MyEntryStyle}" Keyboard="Telephone" MaxLength="10" />
+                    <Entry x:Name="entryColonia" Placeholder="Colonia" Style="{StaticResource MyEntryStyle}" />
+                </StackLayout>
+                <!-- Segunda columna -->
+                <StackLayout Grid.Column="1">
+                    <Entry x:Name="entryApellido" Placeholder="Apellido" Style="{StaticResource MyEntryStyle}"/>
+                    <Entry x:Name="entryCalle" Placeholder="Calle" Style="{StaticResource MyEntryStyle}" />
+                   
+                    <Entry x:Name="entryNumero" Placeholder="Numero Interior o Exterior" Style="{StaticResource MyEntryStyle}" />
+                </StackLayout>
+            </Grid>
+            <StackLayout>
+                <Entry x:Name="entryReferencia" Placeholder="Referencia" Style="{StaticResource MyEntryStyle}" />
+            </StackLayout>
+        </StackLayout>
+    </Frame>
+
+</pages:PopupPage>

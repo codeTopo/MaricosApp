@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MaricosApp.View.Concepto.ConceptoView">
+    <ContentPage.Content>
+        <StackLayout>
+            <!-- Aquí puedes agregar controles para mostrar la lista, como un ListView -->
+            <ListView ItemsSource="{Binding ConceptoLista}">
+                <!-- Define cómo se verá cada elemento en la lista -->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <!-- Aquí puedes mostrar las propiedades de ConceptoList -->
+                            <StackLayout>
+                                <Label Text="{Binding Contador}" />
+                                <Label Text="{Binding Nombre}" />
+                                <!-- Agrega más Labels según tus necesidades -->
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!-- Agrega un botón para agregar nuevos elementos -->
+            <Button Text="Agregar Concepto" Command="{Binding AgregarConceptoCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

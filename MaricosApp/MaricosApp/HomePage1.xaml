@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:magic="http://magic.com/schemas/gradients" 
+             xmlns:producto="clr-namespace:MaricosApp.View.ProductoPopup"
+             x:Class="MaricosApp.HomePage1">
+    <Grid>
+          <magic:GradientView VerticalOptions="FillAndExpand">
+                <magic:GradientView.GradientSource>
+                    <magic:LinearGradient Angle="180">
+                        <magic:GradientStop Color="#7ca8ba" Offset="0.00"/>
+                        <magic:GradientStop Color="#7ca8ba" Offset="0.21"/>
+                        <magic:GradientStop Color="#cac978" Offset="0.44"/>
+                        <magic:GradientStop Color="#7492d7" Offset="0.64"/>
+                        <magic:GradientStop Color="#cac978" Offset="0.81"/>
+                        <magic:GradientStop Color="#7ca8ba" Offset="0.86"/>
+                    </magic:LinearGradient>
+
+                </magic:GradientView.GradientSource>
+            </magic:GradientView>
+        <!-- Contenido principal en la parte superior -->
+        <CollectionView  ItemsSource="{Binding ProductList}" 
+                         >
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <producto:ProductoView/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        
+        <!--Esta es la barra de navegacion -->
+        <Frame
+            VerticalOptions="End"
+            HorizontalOptions="FillAndExpand"
+            Padding="10,5"
+            BackgroundColor="red"
+            Opacity=".8"
+            CornerRadius="10">
+            <!-- Especificar los bordes superiores redondeados -->
+
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Carrito" CornerRadius="10" Clicked="MostrarView" HorizontalOptions="CenterAndExpand" />
+                <Button Text="Botón 2" Clicked="ClienteButon" HorizontalOptions="CenterAndExpand" />
+                <Button Text="lista" Clicked="Button_Clicked" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+
+        </Frame>
+        <!-- ContentView oculto -->
+        <Frame x:Name="hiddenFrame" IsVisible="False" BackgroundColor="LightGray" 
+               CornerRadius="10" BorderColor="Black"
+               Padding="10" HasShadow="True">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <!-- Primera fila para el título y el botón -->
+                    <RowDefinition Height="*" />
+                    <!-- Segunda fila para el contenido de ProductoView -->
+                </Grid.RowDefinitions>
+
+                <!-- Título con letras grandes -->
+                <Label Text="Carrito de Compras" FontSize="Large" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+
+                <!-- Botón de contraer (diseño redondo) -->
+                <Button Text="X" Clicked="ContraerButton_Clicked"  BorderColor="Black" CornerRadius="50" BackgroundColor="Red" TextColor="White" HorizontalOptions="End" VerticalOptions="Center"/>
+                <!-- Contenido de ProductoView -->
+                <ContentView Grid.Row="1" Margin="-8,-8,-8,8">
+                   
+                </ContentView>
+            </Grid>
+        </Frame>
+    </Grid>
+</ContentPage>
