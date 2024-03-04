@@ -13,9 +13,10 @@ namespace MaricosApp.View.Producto
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ProductoPopup : Rg.Plugins.Popup.Pages.PopupPage
 	{
-		public ProductoPopup ()
+		public ProductoPopup (ProductoRequest producto)
 		{
 			InitializeComponent ();
+			//new ViewModel(producto)
 		}
 	}
 }

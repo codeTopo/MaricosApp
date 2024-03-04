@@ -23,13 +23,26 @@ namespace MaricosApp.ViewModel
         public ProductosViewModel()
         {
             apiService = new ApiService();
+
+            InicilizarComandos();
            
         }
+
+        private void InicilizarComandos()
+        {
+            SelectProductCommand = new Command<ProductoRequest>(async (product) =>
+            {
+                await App.Navigation.PushModalAsync(new ProductoPopup(product));
+            });
+        }
+
         //acciones del viewmodel
         public async Task InicializarAsync()
         {
             await CargarProductosAsync();
         }
+
+        public Command<ProductoRequest> SelectProductCommand { get; set; }
 
         //solicitudes http al apiservice 
         public async Task CargarProductosAsync()

@@ -13,7 +13,7 @@ namespace MaricosApp.View.ProductoPopup
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProductoView : ContentView
     {
-        
+    
         public ProductoView()
         {
             InitializeComponent();

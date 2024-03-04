@@ -8,14 +8,17 @@ namespace MaricosApp
 {
     public partial class App : Application
     {
-
+        public static INavigation Navigation {  get; set; }
+                
         public App()
         {
             InitializeComponent();
             var accessToken = SecureStorage.GetAsync("AccessToken").Result;
             if (!string.IsNullOrEmpty(accessToken))
             {
-                MainPage = new NavigationPage(new HomePage1());
+                var page = new NavigationPage(new HomePage1());
+                MainPage = page;
+                Navigation = page.Navigation;
             }
             else
             {
